@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<title>Calculadora</title>
+<head>
+    <script type="text/javascript" src="https://c0.wp.com/c/6.4.3/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+</head>
+<body>
+<div class="wpb_wrapper">
+		<div class=" title-196 title  text-center">
+			<h2 style="font-family:Abril Fatface;font-weight:400;font-style:normal" class="vc_custom_heading banner-title">Calculadora version 1.0</h2>
+		</div>
+
+		
+	<div class="wpb_raw_code wpb_content_element wpb_raw_html">
+		<div class="wpb_wrapper">
+        <div class="div-calculadora">
+            <h2 for="tipoCorte">Tamaño de tu Sticker</h2>
+            <input class="number" placeholder="Ancho de tu sticker en cm" id="anchoSticker" type="number">
+            <input class="number" placeholder="Alto de tu sticker en cm" id="altoSticker" type="number">
+        </div>
+
+        <a id="calcular">Calcular</a>
+
+        <div class="div-calculadora resultado">
+            <p id="totalSticker"></p>
+        </div>
+    
+
+
+    <script>
+        jQuery(function($) {
+            $('#calcular').click(function() {
+
+                var anchoSticker = $("#anchoSticker").val();
+                var altoSticker = $("#altoSticker").val();
+                var anchoImpresion = 90;
+                var altoImpresion = 90;
+
+                var anchoFinalSticker = Number(anchoSticker) + .2;
+
+                var altoFinalSticker = Number(altoSticker) + .2;
+ 
+
+                var cantidadStickerAncho = Number(anchoImpresion) *  Number(altoImpresion) ;
+                var cantidadStickerAlto = Number(anchoFinalSticker) * Number(altoFinalSticker);
+
+                var totalStickers = Math.trunc(cantidadStickerAncho) / Math.trunc(cantidadStickerAlto);
+
+                $("#totalSticker").html("Imprimirías un aprox. de " + "<p>" +  Math.trunc(totalStickers )+ " Stickers" + "</p>");
+            });
+        });
+    </script>
+		</div>
+	</div>
+</div>
+</body>
+</html>
